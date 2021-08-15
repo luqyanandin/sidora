@@ -97,7 +97,7 @@
                 </div>
 
                 <!-- Sidebar Menu -->
-                @include('layout.v_nav')
+                @include('super admin.v_nav')
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->

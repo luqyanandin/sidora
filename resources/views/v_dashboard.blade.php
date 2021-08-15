@@ -1,4 +1,4 @@
-@extends('admin.v_template')
+@extends('user.v_template')
 @section('title','Dashboard')
 
 @section ('content')
@@ -31,4 +31,3 @@
 
   </section>
 @endsection
-

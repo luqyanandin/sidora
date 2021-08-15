@@ -19,12 +19,12 @@ class AkunController extends Controller
             'Akun'=>User::all(),
         ];
         // // dd(Akun::all());        
-        return view('admin.v_akun', $data);
+        return view('super admin.v_akun', $data);
     }
 
     public function add()
     {
-        return view('admin.v_addAkun');
+        return view('super admin.v_addAkun');
     }
 
     public function insert()
@@ -77,7 +77,7 @@ class AkunController extends Controller
             'akun' => $this->Akun->detailData($nip),
         ];
 
-        return view ('admin.v_editAkun', $data);
+        return view ('super admin.v_editAkun', $data);
     }
 
     public function update($nip)

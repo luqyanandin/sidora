@@ -1,4 +1,4 @@
-@extends('layout.v_template')
+@extends('admin.v_template')
 @section('title','Edit Dokumen')
 @section ('content')
 

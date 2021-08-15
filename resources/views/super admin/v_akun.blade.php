@@ -1,4 +1,4 @@
-@extends('layout.v_template')
+@extends('super admin.v_template')
 @section('title','Akun')
 @section ('content')
 <section class="content">
