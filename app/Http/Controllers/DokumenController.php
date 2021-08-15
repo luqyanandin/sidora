@@ -15,6 +15,7 @@ class DokumenController extends Controller
     // }
     public function __construct()
     {
+        $this->middleware('auth');
         $this->Dokumen=new Dokumen();
     }
     public function index(){
