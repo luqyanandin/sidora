@@ -11,7 +11,7 @@
         {{-- <h3 class="card-title">Dokumen Rapat DJSN</h3> --}}
 
         <div class="row">
-          <div class="col-md-4 offset-md-8">
+          <div class="col-md-8 offset-md-2">
               <form action="simple-results.html">
                   <div class="input-group input-group-lg">
                       <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here" value="Nama Rapat">
@@ -24,21 +24,6 @@
               </form>
           </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-4 offset-md-8">
-            <form action="simple-results.html">
-                <div class="input-group input-group-lg">
-                    <input type="date" class="form-control form-control-lg" placeholder="Type your keywords here" value="Tanggal Rapat">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-lg btn-default">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
 
         <a href="/dokumen/add" class="btn btn-primary btn-sm">Tambah</a> <br>
         {{-- <div class="card-tools">
@@ -96,7 +81,7 @@
                 <td><a href="{{$data->notulensi}}" class="btn btn-sm btn-info">Download</a></td>
                 <td><a href="{{$data->undangan}}" class="btn btn-sm btn-info">Download</a></td>
                 <td><a href="/dokumen/detail/{{$data->id_dokumen}}" class="btn btn-sm btn-success">Detail</a></td>
-                <td style="width:500px">
+                <td style="width:150px">
                   <a href="/dokumen/edit/{{$data->id_dokumen}}" class="btn btn-sm btn-warning">Edit</a>
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$data->id_dokumen}}">
                     Delete
