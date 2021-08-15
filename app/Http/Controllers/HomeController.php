@@ -15,6 +15,7 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
+        
     }
 
     /**
@@ -26,6 +27,6 @@ class HomeController extends Controller
     {
         $user=User::all();
         // dd($user[0]->userlevel);
-        return view('admin.v_dashboard');
+        return view('super admin.v_dashboard');
     }
 }

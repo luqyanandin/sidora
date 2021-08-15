@@ -77,9 +77,9 @@
                 <td>{{$data->tempat_rapat}}</td>
                 <td>{{$data->jumlah}}</td>
                 <td>{{$data->pic}}</td>
-                <td><a href="{{$data->bahan}}" class="btn btn-sm btn-info">Download</a></td>
-                <td><a href="{{$data->notulensi}}" class="btn btn-sm btn-info">Download</a></td>
-                <td><a href="{{$data->undangan}}" class="btn btn-sm btn-info">Download</a></td>
+                <td><a href="{{ asset('bahan') }}/{{$data->bahan}}" class="btn btn-sm btn-info">Download</a></td>
+                <td><a href="{{ asset('notulensi') }}/{{$data->notulensi}}" class="btn btn-sm btn-info">Download</a></td>
+                <td><a href="{{ asset('undangan') }}/{{$data->undangan}}" class="btn btn-sm btn-info">Download</a></td>
                 <td><a href="/dokumen/detail/{{$data->id_dokumen}}" class="btn btn-sm btn-success">Detail</a></td>
                 <td style="width:150px">
                   <a href="/dokumen/edit/{{$data->id_dokumen}}" class="btn btn-sm btn-warning">Edit</a>

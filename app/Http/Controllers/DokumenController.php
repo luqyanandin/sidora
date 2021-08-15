@@ -41,7 +41,7 @@ class DokumenController extends Controller
             'jumlah' => 'required|min:1',
             'id_pic' => 'required',
             'bahan' => 'required|mimes:pdf,pptx,docx|max:5000000',
-            'notulensi' => 'required|mimes:pdf,pptx,docx|max:5000000',
+            'notulensi' => 'required|mimes:pdf,pptx,docx|max:50000000',
             'undangan' => 'required|mimes:pdf,pptx,docx|max:5000000',
             'tindak_lanjut' => 'required'
         ],[
@@ -62,12 +62,12 @@ class DokumenController extends Controller
         $bahan = Request()->bahan;
         $notulensi = Request()->notulensi;
         $undangan = Request()->undangan;
-        $bahanname = Request()->id_dokumen . '.' . $bahan->extension();
-        $notulensiname = Request()->id_dokumen . '.' . $notulensi->extension();
-        $undanganname = Request()->id_dokumen . '.' . $undangan->extension();
-        $bahan->move(public_path('bahan'), $bahan);
-        $notulensi->move(public_path('notulensi'), $notulensi);
-        $undangan->move(public_path('undangan'), $undangan);
+        $bahanname = time().'-'. $bahan->getClientOriginalName() ;
+        $notulensiname = time().'-'. $notulensi->getClientOriginalName();
+        $undanganname = time().'-'. $undangan->getClientOriginalName();
+        $bahan->move(public_path('bahan'), $bahanname);
+        $notulensi->move(public_path('notulensi'), $notulensiname);
+        $undangan->move(public_path('undangan'), $undanganname);
 
         $data = [
             'id_dokumen' => Request()->id_dokumen,
@@ -76,10 +76,10 @@ class DokumenController extends Controller
             'id_tempat' => Request()->id_tempat,
             'jumlah' => Request()->jumlah,
             'id_pic' => Request()->id_pic,
-            'bahan' => $bahan,
+            'bahan' => $bahanname,
             'nip'=>'199507232018',
-            'notulensi' => $notulensi,
-            'undangan' => $undangan,
+            'notulensi' => $notulensiname,
+            'undangan' => $undanganname,
             'tindak_lanjut'=>Request()->tindak_lanjut
         ];
 

@@ -11,7 +11,7 @@ class AkunController extends Controller
     public function __construct()
     {
         $this->Akun=new Akun();
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
     public function index(){
         // $data = User::all();
