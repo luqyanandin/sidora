@@ -10,27 +10,27 @@ class Akun extends Model
 {
     public function allData()
     {
-        return DB::table('tb_user')->get();
+        return DB::table('users')->get();
     }
 
     public function addData($data)
     {
-        DB::table('tb_user')->insert($data);
+        DB::table('users')->insert($data);
     }
 
-    public function detailData($nip)
+    public function detailData($username)
     {
-        return DB::table('tb_user')->where('nip' , $nip)->first();
+        return DB::table('users')->where('username' , $username)->first();
     }
 
-    public function editData($nip,$data)
+    public function editData($username,$data)
     {
-        return DB::table('tb_user')->where('nip', $nip)->update($data);
+        return DB::table('users')->where('username', $username)->update($data);
     }
 
-    public function deleteData($nip)
+    public function deleteData($username)
     {
-        return DB::table('tb_user')->where('nip', $nip)->delete();
+        return DB::table('users')->where('username', $username)->delete();
     }
 
 }

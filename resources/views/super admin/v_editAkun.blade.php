@@ -4,16 +4,16 @@
 
 <div class="card">
     <div class="card-header">
-<form action="/akun/update/{{$akun->nip}}" method="POST" enctype="multipart/form-data">
+<form action="/akun/update/{{$akun->username}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="content">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label>NIP/No Induk</label>
-                    <input name="nip" class="form-control" value="{{$akun->nip}}" readonly>
+                    <label>Username</label>
+                    <input name="username" class="form-control" value="{{$akun->username}}">
                     <div class="text-danger">
-                      @error ('nip')
+                      @error ('username')
                       {{$message}}
                       @enderror
                     </div>
@@ -28,12 +28,22 @@
                       @enderror
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" value="{{$akun->email}}">
+                    <div class="text-danger">
+                      @error ('email')
+                      {{$message}}
+                      @enderror
+                    </div>
+                </div>
     
                 <div class="form-group">
                     <label>Nama</label>
-                    <input name="nama_pegawai" class="form-control" value="{{$akun->nama_pegawai}}">
+                    <input name="name" class="form-control" value="{{$akun->name}}">
                     <div class="text-danger">
-                      @error ('nama_pegawai')
+                      @error ('name')
                       {{$message}}
                       @enderror
                     </div>

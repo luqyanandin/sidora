@@ -28,7 +28,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-                    <a href="/login" class="btn btn-default btn-flat">LOGOUT</a>
+                        <a href="/login" class="btn btn-default btn-flat">LOGOUT</a>
                 </li>
                 {{-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -47,8 +47,8 @@
                 </li> --}}
                 <div class="pull-right">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                    <button type="submit" class="btn btn-default btn-flat">Logout</button> 
+                        @csrf
+                        <button type="submit" class="btn btn-default btn-flat">Logout</button>
                     </form>
                 </div>
                 <!-- Notifications Dropdown Menu -->

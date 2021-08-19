@@ -8,9 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 class Dokumen extends Model
 {
+    protected $table = 'tb_dokumen';
+
     public function allData()
     {
         return DB::table('tb_dokumen')
+            ->leftJoin('tb_tempat', 'tb_tempat.id_tempat', '=', 'tb_dokumen.id_tempat')
+            ->leftJoin('tb_pic', 'tb_pic.id_pic', '=', 'tb_dokumen.id_pic')
+            ->get();
+    }
+
+    public function allDataWithKeyword($keyword)
+    {
+        return DB::table('tb_dokumen')->where('nama_rapat','like','%'.$keyword.'%')
             ->leftJoin('tb_tempat', 'tb_tempat.id_tempat', '=', 'tb_dokumen.id_tempat')
             ->leftJoin('tb_pic', 'tb_pic.id_pic', '=', 'tb_dokumen.id_pic')
             ->get();
@@ -23,7 +33,12 @@ class Dokumen extends Model
 
     public function detailData($id_dokumen)
     {
-        return DB::table('tb_dokumen')->where('id_dokumen' , $id_dokumen)->first();
+        return DB::table('tb_dokumen')
+            ->leftJoin('tb_tempat', 'tb_tempat.id_tempat', '=', 'tb_dokumen.id_tempat')
+            ->leftJoin('tb_pic', 'tb_pic.id_pic', '=', 'tb_dokumen.id_pic')
+            ->where('id_dokumen' , $id_dokumen)
+            ->first();
+            
     }
 
     public function editData($id_dokumen,$data)

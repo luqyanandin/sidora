@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class,'index']);
-
 Route::view('/dashboard','admin.v_dashboard');
 // Route::view('/dokumen','admin.v_dokumen');
 Route::get('/dokumen',[DokumenController::class,'index'])->name('dokumen');
@@ -27,13 +26,14 @@ Route::post('/dokumen/insert',[DokumenController::class,'insert']);
 Route::get('/dokumen/edit/{id_dokumen}',[DokumenController::class,'edit']);
 Route::post('/dokumen/update/{id_dokumen}',[DokumenController::class,'update']);
 Route::get('/dokumen/delete/{id_dokumen}',[DokumenController::class,'delete']);
-//Route::view('/akun','admin.v_akun');
+// Route::get('/dokumen', [DokumenController::class,'index']);
+// Route::view('/akun','admin.v_akun');
 Route::get('/akun',[AkunController::class,'index'])->name('akun');
 Route::get('/akun/add',[AkunController::class,'add']);
 Route::post('/akun/insert',[AkunController::class,'insert']);
-Route::get('/akun/edit/{nip}',[AkunController::class,'edit']);
-Route::post('/akun/update/{nip}',[AkunController::class,'update']);
-Route::get('/akun/delete/{nip}',[AkunController::class,'delete']);
+Route::get('/akun/edit/{username}',[AkunController::class,'edit']);
+Route::post('/akun/update/{username}',[AkunController::class,'update']);
+Route::get('/akun/delete/{username}',[AkunController::class,'delete']);
 
 Auth::routes();
 

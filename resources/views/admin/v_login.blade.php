@@ -40,7 +40,7 @@
           {{-- <input type="text" name="username" class="form-control" placeholder="Username"> --}}
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
               @error('username')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -80,7 +80,7 @@
       </form>
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="https://api.whatsapp.com/send?phone=6281233598791">I forgot my password</a>
       </p>
     </div>
     <!-- /.login-card-body -->

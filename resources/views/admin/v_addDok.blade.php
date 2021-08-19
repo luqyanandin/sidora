@@ -84,7 +84,7 @@
 
                         <div class="form-group">
                             <label>Bahan Rapat</label>
-                            <input type="file" name="bahan" class="form-control" value="{{old('bahan')}}">
+                            <input type="file" name="bahan" class="form-control">
                             <div class="text-danger">
                               @error ('bahan')
                               {{$message}}
@@ -94,7 +94,7 @@
 
                         <div class="form-group">
                             <label>Notulensi</label>
-                            <input type="file" name="notulensi" class="form-control" value="{{old('notulensi')}}">
+                            <input type="file" name="notulensi" class="form-control">
                             <div class="text-danger">
                               @error ('notulensi')
                               {{$message}}
@@ -104,7 +104,7 @@
 
                         <div class="form-group">
                           <label>Undangan</label>
-                          <input type="file" name="undangan" class="form-control" value="{{old('undangan')}}">
+                          <input type="file" name="undangan" class="form-control">
                           <div class="text-danger">
                             @error ('undangan')
                             {{$message}}

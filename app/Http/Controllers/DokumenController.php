@@ -18,11 +18,22 @@ class DokumenController extends Controller
         $this->middleware('auth');
         $this->Dokumen=new Dokumen();
     }
-    public function index(){
-        $data=[
-            'Dokumen'=>$this->Dokumen->allData(),
-        ];
-        // // dd(Akun::all());        
+    public function index(Request $request)
+    {
+        $keyword = $request->get('keyword');
+       
+        if($keyword){
+            $data=[
+                'Dokumen'=>$this->Dokumen->allDataWithKeyword($keyword),
+            ];
+            // $data = Dokumen::where("nama_rapat","LIKE","%$keyword%")->get();
+        }else{
+            $data=[
+                'Dokumen'=>$this->Dokumen->allData(),
+            ];
+        }
+
+       
         return view('admin.v_dokumen', $data);
     }
 
@@ -46,7 +57,7 @@ class DokumenController extends Controller
             'tindak_lanjut' => 'required'
         ],[
             'nama_rapat.required' => 'Harap isi bidang ini',
-            'nama_rapat.unique' => 'Nama Rapat ini sudah ada',
+            'nama_rapat.unique' => 'Nama Rapat ini sudah ada, lengkapi dengan kata lain',
             'nama_rapat.min' => 'Min 10 Karakter',
             'tanggal_rapat.required' => 'Harap isi bidang ini',
             'id_tempat.required' => 'Harap isi bidang ini',
@@ -114,7 +125,7 @@ class DokumenController extends Controller
     public function update($id_dokumen)
     {
         Request()->validate([
-            'nama_rapat' => 'required|unique:tb_dokumen,nama_rapat|min:10',
+            'nama_rapat' => 'required|min:10',
             'tanggal_rapat' => 'required',
             'id_tempat' => 'required',
             'jumlah' => 'required|min:1',
@@ -125,7 +136,6 @@ class DokumenController extends Controller
             'tindak_lanjut' => 'required'
         ],[
             'nama_rapat.required' => 'Harap isi bidang ini',
-            'nama_rapat.unique' => 'Nama Rapat ini sudah ada',
             'nama_rapat.min' => 'Min 10 Karakter',
             'tanggal_rapat.required' => 'Harap isi bidang ini',
             'id_tempat.required' => 'Harap isi bidang ini',

@@ -18,7 +18,7 @@
 <tr>
     <th width="100px">Tempat Rapat</th>
     <th width="30px">:</th>
-    <th>{{$dokumen->id_tempat}}</th>
+    <th>{{$dokumen->tempat_rapat}}</th>
 </tr>
 <tr>
     <th width="100px">Jumlah Peserta</th>
@@ -28,7 +28,7 @@
 <tr>
     <th width="100px">PIC Bagian</th>
     <th width="30px">:</th>
-    <th>{{$dokumen->id_pic}}</th>
+    <th>{{$dokumen->pic}}</th>
 </tr>
 <tr>
     <th width="100px">Bahan Rapat</th>
