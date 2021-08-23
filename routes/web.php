@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class,'index']);
-Route::view('/dashboard','admin.v_dashboard');
+Route::get('/dashboard',[DashboardController::class,'index']);
 // Route::view('/dokumen','admin.v_dokumen');
 Route::get('/dokumen',[DokumenController::class,'index'])->name('dokumen');
 Route::get('/dokumen/add',[DokumenController::class,'add']);
@@ -38,3 +39,12 @@ Route::get('/akun/delete/{username}',[AkunController::class,'delete']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('admin-page', function() {
+    return 'Halaman untuk Admin';
+})->middleware('role:admin')->name('admin.page');
+
+Route::get('user-page', function() {
+    return 'Halaman untuk User';
+})->middleware('role:user')->name('user.page');

@@ -27,6 +27,6 @@ class HomeController extends Controller
     {
         $user=User::all();
         // dd($user[0]->userlevel);
-        return view('super admin.v_dashboard');
+        return view('user.v_dashboard');
     }
 }
