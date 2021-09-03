@@ -18,6 +18,7 @@
         </div> --}}
             </div>
 
+            <div class="card-body table-responsive p-0">
             @if (session('pesan'))
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -25,11 +26,12 @@
                     {{ session('pesan') }}.
                 </div>
             @endif
-            <table class="table table-bordered" <thead>
+            <table class="table table-bordered" 
+            <thead>
                 <tr>
                     <th>No</th>
                     <th>Username</th>
-                    <th>Password</th>
+                    {{-- <th>Password</th> --}}
                     <th>Email</th>
                     <th>Nama</th>
                     <th>Hak Akses</th>
@@ -42,15 +44,14 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $data->username }}</td>
-                            <td>{{ $data->password }}</td>
+                            {{-- <td>{{ $data->password }}</td> --}}
                             <td>{{ $data->email}}</td>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->hak_akses }}</td>
-                            <td>
-                                <a href="/akun/edit/{{ $data->username }}" class="btn btn-sm btn-warning">Edit</a>
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#delete{{ $data->username }}">
-                                    Delete
+                            <td style="width:150px">
+                                <a href="/akun/edit/{{ $data->username }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#delete{{ $data->id }}"><i class="fa fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
@@ -59,7 +60,7 @@
             </table>
 
             @foreach ($Akun as $data)
-                <div class="modal modal-danger fade" id="delete{{ $data->username }}">
+                <div class="modal modal-danger fade" id="delete{{ $data->id }}">
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content bg-danger">
                             <div class="modal-header">
@@ -73,11 +74,12 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
-                                <a href="/akun/delete/{{ $data->username }}" class="btn btn-outline-light">Yes</a>
+                                <a href="/akun/delete/{{ $data->id }}" class="btn btn-outline-light">Yes</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
 
             <!-- /.card-body -->

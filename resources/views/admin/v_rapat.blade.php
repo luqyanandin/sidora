@@ -1,5 +1,5 @@
 @extends('admin.v_template')
-@section('title', 'Dokumen')
+@section('title', 'Data Rapat')
 @section('content')
     <section class="content">
 
@@ -12,7 +12,7 @@
 
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <form action="{{url("/dokumen")}}" method="GET">
+                                <form action="{{url("/rapat")}}" method="GET">
                                     <div class="input-group input-group-lg">
                                         <input name="keyword" type="text" class="form-control form-control-lg"
                                             placeholder="Nama Rapat" value="{{old('keyword')}}">
@@ -25,7 +25,7 @@
                                 </form>
                             </div>
                         </div>
-                        <a href="/dokumen/add" class="btn btn-primary btn-sm">Tambah</a> <br>
+                        <a href="/rapat/add" class="btn btn-primary btn-sm">Tambah</a> <br>
                         {{-- <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
@@ -60,16 +60,14 @@
                                     <th>Tempat Rapat</th>
                                     <th>Jumlah Peserta</th>
                                     <th>PIC Bagian</th>
-                                    <th>Bahan</th>
-                                    <th>Notulensi</th>
-                                    <th>Undangan</th>
+                                    <th>Dokumen</th>
                                     <th>Tindak Lanjut</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                @foreach ($Dokumen as $data)
+                                @foreach ($Rapat as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->nama_rapat }}</td>
@@ -77,20 +75,15 @@
                                         <td>{{ $data->tempat_rapat }}</td>
                                         <td>{{ $data->jumlah }}</td>
                                         <td>{{ $data->pic }}</td>
-                                        <td><a href="{{ asset('bahan') }}/{{ $data->bahan }}"
-                                                class="btn btn-sm btn-info">Download</a></td>
-                                        <td><a href="{{ asset('notulensi') }}/{{ $data->notulensi }}"
-                                                class="btn btn-sm btn-info">Download</a></td>
-                                        <td><a href="{{ asset('undangan') }}/{{ $data->undangan }}"
-                                                class="btn btn-sm btn-info">Download</a></td>
-                                        <td><a href="/dokumen/detail/{{ $data->id_dokumen }}"
-                                                class="btn btn-sm btn-success">Detail</a></td>
-                                        <td style="width:150px">
-                                            <a href="/dokumen/edit/{{ $data->id_dokumen }}"
-                                                class="btn btn-sm btn-warning">Edit</a>
+                                        <td align="center"><a href="/rapat/dokumen/{{ $data->id_rapat }}"
+                                                class="btn btn-sm btn-info"><i class="fa fa-folder-open"></i></a></td>
+                                        <td align="center"><a href="/rapat/detail/{{ $data->id_rapat }}"
+                                                class="btn btn-sm btn-success center"><i class="fa fa-eye open"></a></td>
+                                        <td align="center" style="width:150px">
+                                            <a href="/rapat/edit/{{ $data->id_rapat }}"
+                                                class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#delete{{ $data->id_dokumen }}">
-                                                Delete
+                                                data-target="#delete{{ $data->id_rapat }}"><i class="fa fa-trash"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -100,8 +93,8 @@
                     </div>
                     {{-- </div>
   </div> --}}
-                    @foreach ($Dokumen as $data)
-                        <div class="modal modal-danger fade" id="delete{{ $data->id_dokumen }}">
+                    @foreach ($Rapat as $data)
+                        <div class="modal modal-danger fade" id="delete{{ $data->id_rapat }}">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content bg-danger">
                                     <div class="modal-header">
@@ -115,7 +108,7 @@
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                         <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
-                                        <a href="/dokumen/delete/{{ $data->id_dokumen }}"
+                                        <a href="/rapat/delete/{{ $data->id_rapat }}"
                                             class="btn btn-outline-light">Yes</a>
                                     </div>
                                 </div>

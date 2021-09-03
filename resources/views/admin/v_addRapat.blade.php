@@ -1,5 +1,5 @@
 @extends('admin.v_template')
-@section('title','Tambah Dokumen')
+@section('title','Tambah Data Rapat')
 @section ('content')
 <section class="content">
 
@@ -8,7 +8,7 @@
       <div class="card-header">
         {{-- <h3 class="card-title">Tambah Dokumen</h3> --}}
 
-        <form action="/dokumen/insert" method="POST" enctype="multipart/form-data">
+        <form action="/rapat/insert" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="content">
                 <div class="row">
@@ -47,16 +47,6 @@
                             @enderror
                           </div>
                         </div>
-            
-                        {{-- <div class="form-group">
-                            <label>Tempat Rapat</label>
-                            <input type="text" name="tempat_rapat" class="form-control" value="{{old('tempat_rapat')}}">
-                            <div class="text-danger">
-                              @error ('tempat_rapat')
-                              {{$message}}
-                              @enderror
-                            </div>
-                        </div> --}}
 
                         <div class="form-group">
                           <label>Jumlah Peserta Rapat</label>
@@ -82,35 +72,27 @@
                         </div>
                       </div>
 
-                        <div class="form-group">
-                            <label>Bahan Rapat</label>
-                            <input type="file" name="bahan" class="form-control">
-                            <div class="text-danger">
-                              @error ('bahan')
-                              {{$message}}
-                              @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Notulensi</label>
-                            <input type="file" name="notulensi" class="form-control">
-                            <div class="text-danger">
-                              @error ('notulensi')
-                              {{$message}}
-                              @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Undangan</label>
-                          <input type="file" name="undangan" class="form-control">
-                          <div class="text-danger">
-                            @error ('undangan')
-                            {{$message}}
-                            @enderror
-                          </div>
-                      </div>
+      <div class="form-group">  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <h3 class="card-title">
+                Summernote
+              </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <textarea id="summernote">
+              Place some text here
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+      </div>
+      
 
                         <div class="form-group">
                             <label>Tindak Lanjut</label>

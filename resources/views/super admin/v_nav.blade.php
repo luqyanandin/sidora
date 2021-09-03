@@ -14,7 +14,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/dokumen" class="nav-link {{request()->is('dokumen')?'active':''}}">
+        <a href="/rapat" class="nav-link {{request()->is('rapat')?'active':''}}">
           <img src="{{ asset('template') }}/dist/img/google-docs.png" width="20px"> 
           {{-- <i class="nav-icon fas fa-document-alt"></i> --}}
           <p>

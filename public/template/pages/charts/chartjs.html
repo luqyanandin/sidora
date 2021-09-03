@@ -1024,7 +1024,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
+<script type="text/javascript">
   $(function () {
     /* ChartJS
      * -------
@@ -1066,25 +1066,7 @@
       ]
     }
 
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
-        yAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }]
-      }
-    }
+    
 
     // This will get the first returned node in the jQuery collection.
     new Chart(areaChartCanvas, {

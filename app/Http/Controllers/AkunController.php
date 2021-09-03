@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Crypt;
 use Illuminate\Support\Facades\Hash;
+
 class AkunController extends Controller
 {
     public function __construct()
@@ -106,7 +107,7 @@ class AkunController extends Controller
 
         $data = [
             'username' => Request()->username,
-            'password' => Request()->password,
+            'password' => Hash::make(Request()->password),
             'email' => Request()->email,
             'name' => Request()->name,
             'hak_akses' => Request()->hak_akses,
@@ -118,6 +119,7 @@ class AkunController extends Controller
 
     public function delete($username)
     {
+
         $this->Akun->deleteData($username);
         return redirect()->route('akun')->with('pesan', 'Data Berhasil Dihapus');
         

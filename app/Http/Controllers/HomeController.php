@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $user=User::all();
+        
         // dd($user[0]->userlevel);
         return view('user.v_dashboard');
     }

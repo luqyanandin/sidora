@@ -30,7 +30,7 @@ class Akun extends Model
 
     public function deleteData($username)
     {
-        return DB::table('users')->where('username', $username)->delete();
+        return DB::table('users')->where('id', $username)->delete();
     }
 
 }

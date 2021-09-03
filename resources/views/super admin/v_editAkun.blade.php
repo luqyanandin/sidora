@@ -21,7 +21,7 @@
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control" value="{{$akun->password}}">
+                    <input type="password" name="password" class="form-control">
                     <div class="text-danger">
                       @error ('password')
                       {{$message}}

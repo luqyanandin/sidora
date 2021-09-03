@@ -11,8 +11,41 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('template') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('template') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('template') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.css">
+    <!-- Summernote -->
+    <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template') }}/dist/css/adminlte.min.css">
+
+
+            <!-- jQuery -->
+            <script src="{{ asset('template') }}/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="{{ asset('template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="{{ asset('template') }}/dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="{{ asset('template') }}/dist/js/demo.js"></script>
+            <!-- ChartJS -->
+            <script src="{{ asset('template') }}/plugins/chart.js/Chart.min.js"></script>
+
+            <script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+    //   mode: "htmlmixed",
+    //   theme: "monokai"
+    // });
+  })
+</script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,7 +61,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-                        <a href="/login" class="btn btn-default btn-flat">LOGOUT</a>
+                        <a href="/login" class="btn btn-default btn-flat">Login</a>
                 </li>
                 {{-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -45,12 +78,23 @@
                         <i class="far fa-comment"></i> Logout
                     </a>
                 </li> --}}
+                @guest
+
+                <div class="pull-right">
+                    <a href="/login" class="btn btn-default btn-flat">Login
+                    
+                </a>
+                </div>
+                @endguest
+                @auth
+
                 <div class="pull-right">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         <button type="submit" class="btn btn-default btn-flat">Logout</button>
                     </form>
                 </div>
+                @endauth
                 <!-- Notifications Dropdown Menu -->
                 {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
@@ -64,7 +108,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ asset('template') }}/dashboard" class="brand-link">
+            <a href="/dashboard" class="brand-link">
                 <img src="{{ asset('template') }}/dist/img/logo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">SIDORA</span>
@@ -73,15 +117,21 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
+                @auth
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('template') }}/dist/img/avatar3.png" class="img-circle elevation-2"
+                        <img src="{{ asset('template') }}/dist/img/account.png" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Super Admin</a>
+                        
+                        <a href="#" class="d-block">{{ auth()->user()->username}}</a>
+                      
+                        
+                        
                     </div>
                 </div>
+                @endauth
 
                 <!-- SidebarSearch Form -->
                 {{-- <div class="form-inline">
@@ -148,6 +198,20 @@
     <script src="{{ asset('template') }}/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('template') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/jszip/jszip.min.js"></script>
+    <script src="{{ asset('template') }}plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    
     <!-- AdminLTE App -->
     <script src="{{ asset('template') }}/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
