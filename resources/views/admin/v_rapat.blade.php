@@ -10,7 +10,7 @@
                     <div class="card-header">
                         {{-- <h3 class="card-title">Dokumen Rapat DJSN</h3> --}}
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-8 offset-md-2">
                                 <form action="{{url("/rapat")}}" method="GET">
                                     <div class="input-group input-group-lg">
@@ -24,7 +24,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                         <a href="/rapat/add" class="btn btn-primary btn-sm">Tambah</a> <br>
                         {{-- <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -51,7 +51,8 @@
       <div class="row">
       <div class="col-md-3"> --}}
 
-                        <table class="table table-bordered">
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No</th>

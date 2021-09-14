@@ -46,7 +46,7 @@
                         <h3 class="card-title">Bahan Rapat</h3>
                     </div>
                     <div class="card-body">
-                        <form action="/bahan/insertBahan/1" method="POST" enctype="multipart/form-data">
+                        <form action="/bahan/insertBahan/{{$rapat->id_rapat}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                         <div class="col-md-4">
@@ -65,9 +65,6 @@
                     </div>
                         </form>
                     </div>
-                            {{-- <div class="col-md-8">
-                                <button class="btn btn-success">Upload</button>
-                            </div> --}}
                         
 
                         <table class="table table-bordered">
@@ -94,8 +91,16 @@
                                         <td>{{$data->bahan_rapat}}</td>
                                         <td align="center"><a href="{{asset('bahan')}}/{{$data->bahan_rapat}}"
                                                 class="btn btn-sm btn-info"><i class="fa fa-download"></i></a></td> 
-                                        <td align="center"><a href="/bahan/deleteBahan/{{ $data->id_bahan }}" type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i></a></td>                                         
+                                        <td align="center">
+                                                                                                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#deleteBahan{{ $data->id_bahan }}"><i class="fa fa-trash"></i>
+                                </button>
+                                            {{-- <a href="/bahan/deleteBahan/{{ $data->id_bahan }}" type="button" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i></a> --}}
+                                        </td>      
+                                            
+
+                                </button>
                                     </tr>
                                     @endforeach
                             </tbody>
@@ -104,7 +109,7 @@
                 </div>
             </div>
             @foreach ($bahan as $data)
-                        <div class="modal modal-danger fade" id="delete{{ $data->id_bahan }}">
+                        <div class="modal modal-danger fade" id="deleteBahan{{ $data->id_bahan }}">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content bg-danger">
                                     <div class="modal-header">
@@ -132,7 +137,7 @@
                         <h3 class="card-title">Notulensi</h3>
                     </div>
                     <div class="card-body">
-                        <form action="/bahan/insertNotulensi/1" method="POST" enctype="multipart/form-data">
+                        <form action="/bahan/insertNotulensi/{{$rapat->id_rapat}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-4">
@@ -148,6 +153,8 @@
                     <div class="col-md-4">
                             <button type="submit" class="btn btn-info">Upload</button>
                         </div>
+                    </div>
+                                            </form>
                         </div>
 
                         <table class="table table-bordered">
@@ -174,8 +181,11 @@
                                         <td>{{$data->notulensi_rapat}}</td>
                                         <td align="center"><a href="{{asset('bahan')}}/{{$data->notulensi_rapat}}"
                                                 class="btn btn-sm btn-info"><i class="fa fa-download"></i></a></td> 
-                                        <td align="center"><a href="/bahan/deleteNotulensi/{{ $data->id_notulensi }}" type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i></a></td>                                          
+                                        <td align="center">
+                                                                                                                                                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#deleteNotulensi{{ $data->id_notulensi }}"><i class="fa fa-trash"></i>
+                                </button>
+                                        </td>                                          
                                     </tr>
                                     @endforeach
                             </tbody>
@@ -183,9 +193,9 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-            </div>
+            
             @foreach ($notulensi as $data)
-                        <div class="modal modal-danger fade" id="delete{{ $data->id_notulensi }}">
+                        <div class="modal modal-danger fade" id="deleteNotulensi{{ $data->id_notulensi }}">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content bg-danger">
                                     <div class="modal-header">
@@ -207,12 +217,14 @@
                         </div>
                 @endforeach
 
-            <div class="card card-primary">
+
+                <div class="col-sm-12">
+                <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Undangan</h3>
                     </div>
                     <div class="card-body">
-                        <form action="/bahan/insertUndangan/1" method="POST" enctype="multipart/form-data">
+                        <form action="/bahan/insertUndangan/{{$rapat->id_rapat}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-4">
@@ -228,10 +240,8 @@
                     <div class="col-md-4">
                             <button type="submit" class="btn btn-info">Upload</button>
                         </div>
-                            {{-- <div class="col-md-8">
-                                <button class="btn btn-success">Upload</button>
-                            </div> --}}
-                        
+                    </div>
+                                            </form>
                         </div>
 
                         <table class="table table-bordered">
@@ -255,11 +265,14 @@
                                     @foreach ($undangan as $data)
                                     <tr>
                                         <td align="center">{{$no++}}</td>
-                                        <td align="center">{{$data->undangan_rapat}}</td>
+                                        <td>{{$data->undangan_rapat}}</td>
                                         <td align="center"><a href="{{asset('bahan')}}/{{$data->undangan_rapat}}"
                                                 class="btn btn-sm btn-info"><i class="fa fa-download"></i></a></td> 
-                                        <td align="center"><a href="/bahan/deleteUndangan/{{ $data->id_undangan }}" type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i></a></td>                                         
+                                        <td align="center">
+                                                                                                                                                                                                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                    data-target="#deleteUndangan{{ $data->id_undangan }}"><i class="fa fa-trash"></i>
+                                </button>
+                                        </td>                                          
                                     </tr>
                                     @endforeach
                             </tbody>
@@ -269,7 +282,7 @@
                 </div>
             </div>
             @foreach ($undangan as $data)
-                        <div class="modal modal-danger fade" id="delete{{ $data->id_undangan }}">
+                        <div class="modal modal-danger fade" id="deleteUndangan{{ $data->id_undangan }}">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content bg-danger">
                                     <div class="modal-header">
@@ -290,5 +303,4 @@
                             </div>
                         </div>
                 @endforeach
-
 @endsection

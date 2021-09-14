@@ -18,7 +18,8 @@
 </head>
 
 <body class="hold-transition login-page" >
-    <div >
+    <img src="{{ asset('template') }}/dist/img/DJSN.png" width="100px">
+    <br>
         <div class="login-box">
             <div class="login-logo">
                 <a href="../../index2.html">SIDORA</a>

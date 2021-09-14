@@ -52,7 +52,7 @@ class Rapat extends Model
     }
 
     public function dashboardJumlahRapat(){
-        return DB::table('tb_rapat')->select(DB::raw('count(id_rapat) as `data`'),DB::raw('YEAR(tanggal_rapat) year, MONTH(tanggal_rapat) month'))
+        return DB::table('tb_rapat')->select(DB::raw('count(id_rapat) as `data`'),DB::raw('YEAR(tanggal_rapat) year, MONTHNAME(tanggal_rapat) month'))
         ->groupBy('year','month')->pluck('data','month')->all();
     }
 

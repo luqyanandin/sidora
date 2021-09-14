@@ -36,17 +36,17 @@ class AkunController extends Controller
             'password' => 'required|min:3|max:10',
             'email' => 'required',
             'name' => 'required',
-            'email' => 'required',
+            // 'email' => 'required',
             'hak_akses' => 'required',
         ],[
-            'username.required' => 'Harap isi bidang ini',
+            'username.required' => 'Harap isi kolom ini',
             'username.min' => 'Min 5 Karakter',
-            'password.required' => 'Harap isi bidang ini',
+            'password.required' => 'Harap isi kolom ini',
             'password.min' => 'Min 3 Karakter',
             'password.max' => 'Min 10 Karakter',
-            'email' => 'Harap isi bidang ini',
-            'name.required' => 'Harap isi bidang ini',
-            'hak_akses.required' => 'Harap isi bidang ini'
+            // 'email' => 'Harap isi kolom ini',
+            'name.required' => 'Harap isi kolom ini',
+            'hak_akses.required' => 'Harap isi kolom ini'
         ]);
 
         $data = [
@@ -92,17 +92,17 @@ class AkunController extends Controller
             'password' => 'required|min:3|max:10',
             'email' => 'required',
             'name' => 'required',
-            'email' => 'required',
+            // 'email' => 'required',
             'hak_akses' => 'required',
         ],[
-            'username.required' => 'Harap isi bidang ini',
+            'username.required' => 'Harap isi kolom ini',
             'username.min' => 'Min 5 Karakter',
-            'password.required' => 'Harap isi bidang ini',
+            'password.required' => 'Harap isi kolom ini',
             'password.min' => 'Min 3 Karakter',
             'password.max' => 'Min 10 Karakter',
-            'email' => 'Harap isi bidang ini',
-            'name.required' => 'Harap isi bidang ini',
-            'hak_akses.required' => 'Harap isi bidang ini'
+            // 'email' => 'Harap isi kolom ini',
+            'name.required' => 'Harap isi kolom ini',
+            'hak_akses.required' => 'Harap isi kolom ini'
         ]);
 
         $data = [

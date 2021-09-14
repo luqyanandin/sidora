@@ -57,6 +57,7 @@
                             @enderror
                           </div>
                         </div>
+                        
 
                       <div class="form-group">
                         <label>PIC Bagian</label>
@@ -72,7 +73,7 @@
                         </div>
                       </div>
 
-      <div class="form-group">  
+      {{-- <div class="form-group">  
       <div class="row">
         <div class="col-md-12">
           <div class="card card-outline card-info">
@@ -91,10 +92,38 @@
         </div>
         <!-- /.col-->
       </div>
-      </div>
-      
+      </div> --}}
 
-                        <div class="form-group">
+       <div class="form-group">
+                        <label>Tindak Lanjut</label>
+                                        <textarea id="summernote" name="tindak_lanjut">
+                                        
+              </textarea>
+                          {{-- <textarea name="tindak_lanjut" class="form-control">{{$rapat->tindak_lanjut}}</textarea> --}}
+                        <div class="text-danger">
+                          @error ('tindak_lanjut')
+                          {{$message}}
+                          @enderror
+                        </div>
+                    </div>
+      
+      {{-- <div class="row">
+          <div class="col-md-12">
+            <div class="card card-outline card-info">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Tindak Lanjut
+                </h3>
+              </div>
+              <!-- /.card-header -->
+                <textarea id="summernote" name="tindak_lanjut">
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+        </div> --}}
+
+                        {{-- <div class="form-group">
                             <label>Tindak Lanjut</label>
                               <textarea name="tindak_lanjut" class="form-control" rows="3" placeholder="Enter ..." value="{{old('tindak_lanjut')}}"></textarea>
                             <div class="text-danger">
@@ -102,7 +131,7 @@
                               {{$message}}
                               @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         
                         <div class="form-group">
                             <button class="btn btn-primary btn-sm">Submit</button>

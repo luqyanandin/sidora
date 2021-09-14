@@ -33,12 +33,13 @@
 <tr>
     <th width="100px">Tindak Lanjut</th>
     <th width="30px">:</th>
-    <th>{{$rapat->tindak_lanjut}}</th>
+    <th>{!!$rapat->tindak_lanjut!!}</th>
 </tr>
 <tr>
     <th><a href="/rapat" class="btn btn-success tbn-sm">Kembali</a></th>
 </tr>
 </table>
+
     </div>
 </div>
 

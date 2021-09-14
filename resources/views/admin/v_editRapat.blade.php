@@ -75,7 +75,10 @@
 
                       <div class="form-group">
                         <label>Tindak Lanjut</label>
-                          <textarea name="tindak_lanjut" class="form-control">{{$rapat->tindak_lanjut}}</textarea>
+                                        <textarea id="summernote" name="tindak_lanjut">
+                                          {{$rapat->tindak_lanjut}}
+              </textarea>
+                          {{-- <textarea name="tindak_lanjut" class="form-control">{{$rapat->tindak_lanjut}}</textarea> --}}
                         <div class="text-danger">
                           @error ('tindak_lanjut')
                           {{$message}}

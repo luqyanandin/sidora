@@ -33,6 +33,7 @@ class DashboardController extends Controller
                 $chart2->dataset = (array_values($groups2));
         if($keyword){
             $data=[
+                'keyword'=>$keyword,
                 'Rapat'=>$this->Rapat->allDataWithKeyword($keyword),
                 'Chart'=>$chart,
                 'Chart2'=>$chart2
@@ -40,14 +41,36 @@ class DashboardController extends Controller
             // $data = Dokumen::where("nama_rapat","LIKE","%$keyword%")->get();
         }else{
             $data=[
+                 'keyword'=>'',
                 'Rapat'=>$this->Rapat->allData(),
                 'Chart'=>$chart,
-                                'Chart2'=>$chart2
+                'Chart2'=>$chart2
             ];
         }
 
         return view('admin.v_dashboard', $data);
     }
+
+    // function bulan(Request $tanggal)
+    // {
+    // $bulan = array (1 => 'Januari',
+    // 'Februari',
+    // 'Maret',
+    // 'April',
+    // 'Mei',
+    // 'Juni',
+    // 'Juli',
+    // 'Agustus',
+    // 'September',
+    // 'Oktober',
+    // 'November',
+    // 'Desember'
+    // );
+    // $split = explode('-', $tanggal);
+    // return $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+    // }
+
+    // echo tanggal_indo('2016-03-20');
 
     public function search(Request $request)
     {

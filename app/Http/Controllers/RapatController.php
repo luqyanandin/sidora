@@ -49,18 +49,18 @@ class RapatController extends Controller
             'nama_rapat' => 'required|unique:tb_rapat,nama_rapat|min:10',
             'tanggal_rapat' => 'required',
             'id_tempat' => 'required',
-            'jumlah' => 'required|min:1',
+            // 'jumlah' => 'required|min:1',
             'id_pic' => 'required',
             // 'tindak_lanjut' => 'required'
         ],[
-            'nama_rapat.required' => 'Harap isi bidang ini',
+            'nama_rapat.required' => 'Harap isi kolom ini',
             'nama_rapat.unique' => 'Nama Rapat ini sudah ada, lengkapi dengan kata lain',
             'nama_rapat.min' => 'Min 10 Karakter',
-            'tanggal_rapat.required' => 'Harap isi bidang ini',
-            'id_tempat.required' => 'Harap isi bidang ini',
-            'jumlah.required' => 'Harap isi bidang ini',
-            'jumlah.min' => 'Min 1 karakter',
-            'id_pic.required' => 'Harap isi bidang ini',
+            'tanggal_rapat.required' => 'Harap isi kolom ini',
+            'id_tempat.required' => 'Harap isi kolom ini',
+            // 'jumlah.required' => 'Harap isi kolom ini',
+            // 'jumlah.min' => 'Min 1 karakter',
+            'id_pic.required' => 'Harap isi kolom ini',
             // 'tindak_lanjut.required' => 'Harap isi bidang ini'
         ]);
 
@@ -108,17 +108,17 @@ class RapatController extends Controller
             'nama_rapat' => 'required|min:10',
             'tanggal_rapat' => 'required',
             'id_tempat' => 'required',
-            'jumlah' => 'required|min:1',
+            // 'jumlah' => 'required|min:1',
             'id_pic' => 'required',
             // 'tindak_lanjut' => 'required'
         ],[
-            'nama_rapat.required' => 'Harap isi bidang ini',
+            'nama_rapat.required' => 'Harap isi kolom ini',
             'nama_rapat.min' => 'Min 10 Karakter',
-            'tanggal_rapat.required' => 'Harap isi bidang ini',
-            'id_tempat.required' => 'Harap isi bidang ini',
-            'jumlah.required' => 'Harap isi bidang ini',
-            'jumlah.min' => 'Min 1 karakter',
-            'id_pic.required' => 'Harap isi bidang ini',
+            'tanggal_rapat.required' => 'Harap isi kolom ini',
+            'id_tempat.required' => 'Harap isi kolom ini',
+            // 'jumlah.required' => 'Harap isi kolom ini',
+            // 'jumlah.min' => 'Min 1 karakter',
+            'id_pic.required' => 'Harap isi kolom ini',
             // 'tindak_lanjut.required' => 'Harap isi bidang ini'
         ]);
 
@@ -157,6 +157,7 @@ class RapatController extends Controller
         'notulensi' => $this->Notulensi->getData($id_rapat),
         'undangan' => $this->Undangan->getData($id_rapat)
         ];
+
         return view ('admin.v_addBahan',$data);
     }
 

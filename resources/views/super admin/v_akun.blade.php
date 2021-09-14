@@ -1,4 +1,4 @@
-@extends('super admin.v_template')
+@extends('admin.v_template')
 @section('title', 'Akun')
 @section('content')
     <section class="content">
@@ -26,7 +26,8 @@
                     {{ session('pesan') }}.
                 </div>
             @endif
-            <table class="table table-bordered" 
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
@@ -58,6 +59,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
 
             @foreach ($Akun as $data)
                 <div class="modal modal-danger fade" id="delete{{ $data->id }}">

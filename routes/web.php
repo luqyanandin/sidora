@@ -20,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [DashboardController::class,'index']);
-Route::get('/dashboard',[DashboardController::class,'index']);
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/dashboard/search',[DashboardController::class,'search'])->name('rapat');
 // Route::get('/dashboard',[DashboardController::class,'tabel']);
 // Route::view('/dokumen','admin.v_dokumen');

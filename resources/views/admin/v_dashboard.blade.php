@@ -31,7 +31,7 @@
             <div class="col-sm-12 col-lg-6">
               <div class="card card-info">
                   <div class="card-header">
-                      <h3 class="card-title">Rata-Rata Tempat Rapat</h3>
+                      <h3 class="card-title">Jumlah Tempat Rapat</h3>
 
                   </div>
                   <div class="card-body">
@@ -83,7 +83,7 @@
       labels  : {!!json_encode($Chart2->labels)!!},
       datasets: [
         {
-          label               : 'Rata-Rata Tempat Rapat',
+          label               : 'Tempat Rapat',
           backgroundColor     : 'rgba(24,162,184,1)',
           borderColor         : 'rgba(24,162,184,1)',
           pointRadius          : false,
@@ -109,7 +109,14 @@
                         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    userCallback: function(label, index, labels) {
+                     // when the floored value is the same as the value we have a whole number
+                     if (Math.floor(label) === label) {
+                         return label;
+                     }
+
+                 },
                 }
             }]
         }
@@ -129,6 +136,7 @@
             </script>
 
             @guest
+                                            {{-- <form></form>
             <div class="card card-success">
                 <div class="card-header">
                     <h3 class="card-title">Data Rapat</h3>
@@ -137,19 +145,23 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <form action="{{ url('/rapat') }}" method="GET">
+                                                        <form action="{{ url('/dashboard') }}" method="GET">
                             <div class="input-group input-group-lg">
+
+
                                 <input name="keyword" type="text" class="form-control form-control-lg"
-                                    placeholder="Nama Rapat" value="{{ old('keyword') }}">
+                                    placeholder="Nama Rapats" value="{{ $keyword }}">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-lg btn-default">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
+
                             </div>
-                        </form>
+                                                        </form>
                     </div>
                 </div>
+            </div>
                 <br>
 
                 <table class="table table-bordered">
@@ -183,6 +195,44 @@
                 </table>
 
 
+            </div> --}}
+
+            <div class="card card-success">
+                <div class="card-header">
+                    <h3 class="card-title">Data Rapat</h3>
+                </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                            <th>Nama Rapat</th>
+                            <th>Tanggal Rapat</th>
+                            <th>Tempat Rapat</th>
+                            <th>Jumlah Peserta</th>
+                            <th>PIC Bagian</th>
+                            <th>Dokumen</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php $no = 1; ?>
+                        @foreach ($Rapat as $data)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $data->nama_rapat }}</td>
+                                <td>{{ $data->tanggal_rapat }}</td>
+                                <td>{{ $data->tempat_rapat }}</td>
+                                <td>{{ $data->jumlah }}</td>
+                                <td>{{ $data->pic }}</td>
+                                <td align="center"><a href="https://api.whatsapp.com/send?phone={{ $data->telepon }}"
+                                        class="btn btn-sm btn-success"><i class="fa fa-paper-plane"></a></td>
+                            </tr>
+                        @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
         </div>
         @endguest

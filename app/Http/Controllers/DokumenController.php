@@ -23,10 +23,9 @@ class DokumenController extends Controller
     {
 
     Request()->validate([
-    'bahan' => 'mimes:pdf,pptx,docx,rar,zip',
-    'bahan' => 'required|file|max:8000',
+    'bahan' => 'mimes:pdf,pptx,docx,jpeg,jpg,rar,zip',
+    'bahan' => 'required|file|max:30000',
     ]);
-
     $bahan = Request()->bahan;
     $bahanname = time().'-'. $bahan->getClientOriginalName();
     $bahan->move(public_path('bahan'), $bahanname);
@@ -44,7 +43,8 @@ class DokumenController extends Controller
     public function insertNotulensi($id_rapat)
     {
     Request()->validate([
-    'notulensi' => 'mimes:pdf,pptx,docx,rar,zip|max:100000000000000',
+    'notulensi' => 'mimes:pdf,pptx,docx,jpeg,jpg,rar,zip',
+    'notulensi' => 'required|file|max:30000',
     ]);
 
     $notulensi = Request()->notulensi;
@@ -64,7 +64,8 @@ class DokumenController extends Controller
     public function insertUndangan($id_rapat)
     {
     Request()->validate([
-    'undangan' => 'mimes:pdf,pptx,docx,rar,zip|max:100000000000000',
+    'undangan' => 'mimes:pdf,pptx,docx,jpeg,jpg,rar,zip',
+    'undangan' => 'required|file|max:30000',
     ]);
 
     $undangan = Request()->undangan;

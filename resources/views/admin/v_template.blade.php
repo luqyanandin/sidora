@@ -18,7 +18,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.css">
     <!-- Summernote -->
-    <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script>
+    {{-- <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template') }}/dist/css/adminlte.min.css">
 
@@ -27,24 +27,20 @@
             <script src="{{ asset('template') }}/plugins/jquery/jquery.min.js"></script>
             <!-- Bootstrap 4 -->
             <script src="{{ asset('template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <!-- AdminLTE App -->
-            <script src="{{ asset('template') }}/dist/js/adminlte.min.js"></script>
-            <!-- AdminLTE for demo purposes -->
-            <script src="{{ asset('template') }}/dist/js/demo.js"></script>
             <!-- ChartJS -->
             <script src="{{ asset('template') }}/plugins/chart.js/Chart.min.js"></script>
 
             <script>
-  $(function () {
-    // Summernote
-    $('#summernote').summernote()
+//   $(function () {
+//     // Summernote
+//     $('#summernote').summernote()
 
-    // CodeMirror
-    // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-    //   mode: "htmlmixed",
-    //   theme: "monokai"
-    // });
-  })
+//     // CodeMirror
+//     // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+//     //   mode: "htmlmixed",
+//     //   theme: "monokai"
+//     // });
+//   })
 </script>
 </head>
 
@@ -124,11 +120,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        
-                        <a href="#" class="d-block">{{ auth()->user()->username}}</a>
-                      
-                        
-                        
+                        <a href="#" class="d-block">{{ auth()->user()->username}}</a>                                             
                     </div>
                 </div>
                 @endauth
@@ -193,6 +185,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+    
 
     <!-- jQuery -->
     <script src="{{ asset('template') }}/plugins/jquery/jquery.min.js"></script>
@@ -206,7 +199,7 @@
     <script src="{{ asset('template') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
     <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
     <script src="{{ asset('template') }}/plugins/jszip/jszip.min.js"></script>
-    <script src="{{ asset('template') }}plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{ asset('template') }}/plugins/pdfmake/pdfmake.min.js"></script>
     <script src="{{ asset('template') }}/plugins/pdfmake/vfs_fonts.js"></script>
     <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="{{ asset('template') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
@@ -214,8 +207,29 @@
     
     <!-- AdminLTE App -->
     <script src="{{ asset('template') }}/dist/js/adminlte.min.js"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('template') }}/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('template/') }}/dist/js/demo.js"></script>
+    {{-- <script src="{{ asset('template/') }}/dist/js/demo.js"></script> --}}
+    <script>
+            $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+    //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    </script>
+
+    <script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body>
 
 </html>
